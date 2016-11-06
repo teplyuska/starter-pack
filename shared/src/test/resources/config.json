@@ -1,0 +1,5 @@
+{
+  "jdbcUrl" : "iamurl",
+  "dbUser" : "iamuser",
+  "dbPassword" : "iampassword"
+}
