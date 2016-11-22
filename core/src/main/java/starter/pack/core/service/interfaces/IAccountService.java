@@ -1,4 +1,4 @@
-package starter.pack.core.interfaces.service;
+package starter.pack.core.service.interfaces;
 
 import starter.pack.core.model.custom.account.CreateAccount;
 import starter.pack.core.model.data.Account;

@@ -1,10 +1,10 @@
-package starter.pack.core.service;
+package starter.pack.core.service.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import starter.pack.core.interfaces.repository.IAccountRepository;
-import starter.pack.core.interfaces.service.IAccountService;
+import starter.pack.core.repository.interfaces.IAccountRepository;
+import starter.pack.core.service.interfaces.IAccountService;
 import starter.pack.core.mapper.IEntityMapper;
 import starter.pack.core.model.custom.account.CreateAccount;
 import starter.pack.core.model.data.Account;
@@ -28,12 +28,12 @@ public class AccountService implements IAccountService {
 
     @Override
     public Account getById(Long accountId) {
-        return accountRepository.get(accountId);
+        return accountRepository.findOne(accountId);
     }
 
     @Override
     public List<Account> getAll() {
-        return accountRepository.getAll();
+        return accountRepository.findAll();
     }
 
     @Override
@@ -42,6 +42,6 @@ public class AccountService implements IAccountService {
 
         newAccount.setCreatedDate(dateUtil.getNow());
 
-        return accountRepository.add(newAccount);
+        return accountRepository.save(newAccount);
     }
 }

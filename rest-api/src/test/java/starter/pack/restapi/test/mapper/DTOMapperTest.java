@@ -1,6 +1,8 @@
-package starter.pack.restapi.mapper;
+package starter.pack.restapi.test.mapper;
 
 import org.junit.Test;
+import starter.pack.restapi.mapper.DTOMapper;
+import starter.pack.restapi.mapper.IDTOMapper;
 
 public class DTOMapperTest {
     @Test

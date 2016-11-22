@@ -1,5 +1,6 @@
 package starter.pack.core.mapper;
 
+import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 import starter.pack.core.model.custom.account.CreateAccount;
 import starter.pack.core.model.data.Account;
@@ -13,6 +14,12 @@ public class EntityMapper extends BaseMapper implements IEntityMapper {
     }
 
     private void setupAccountMappings() {
-        this.mapper.createTypeMap(CreateAccount.class, Account.class);
+        this.mapper.addMappings(new PropertyMap<CreateAccount, Account>() {
+            @Override
+            protected void configure() {
+                skip().setId(null);
+                skip().setCreatedDate(null);
+            }
+        });
     }
 }

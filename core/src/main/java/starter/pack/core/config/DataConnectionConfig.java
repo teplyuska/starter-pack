@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -18,13 +19,15 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"starter.pack.core.repositories", "starter.pack.core.model.data"})
+@ComponentScan(basePackages = {"starter.pack.core.model.data"})
+@EnableJpaRepositories(basePackages = {"starter.pack.core.repository"})
 public class DataConnectionConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(c3p0DataSource());
         em.setPackagesToScan(new String[]{"starter.pack.core.model.data"});
+
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setShowSql(false);
         em.setJpaVendorAdapter(vendorAdapter);

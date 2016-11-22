@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import starter.pack.core.interfaces.service.IAccountService;
+import starter.pack.core.service.interfaces.IAccountService;
 import starter.pack.core.model.custom.account.CreateAccount;
 import starter.pack.core.model.data.Account;
 import starter.pack.restapi.mapper.IDTOMapper;
