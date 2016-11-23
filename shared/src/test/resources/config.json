@@ -1,5 +1,6 @@
 {
-  "jdbcUrl" : "iamurl",
-  "dbUser" : "iamuser",
-  "dbPassword" : "iampassword"
+  "databaseIp" : "iamdatabaseip",
+  "databaseName": "iamdatabasename",
+  "databaseUser" : "iamdatabaseuser",
+  "databasePassword" : "iamdatabasepassword"
 }

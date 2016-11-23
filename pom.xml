@@ -20,6 +20,7 @@
         <maven-jar-plugin-version>3.0.2</maven-jar-plugin-version>
 
         <org.springframework-version>4.3.3.RELEASE</org.springframework-version>
+        <org.springframework.security-version>4.2.0.RELEASE</org.springframework.security-version>
 
         <javax.servlet-version>3.1.0</javax.servlet-version>
         <org.modelmapper-version>0.7.7</org.modelmapper-version>

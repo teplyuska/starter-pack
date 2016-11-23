@@ -16,8 +16,9 @@ public class PropertyUtilTest {
         Path path = Paths.get(resource.toURI());
         EnvironmentConfigurations environmentConfigurations = PropertyUtil.getEnvironmentConfigurations(path);
 
-        Assert.assertEquals(environmentConfigurations.getJdbcUrl(), "iamurl");
-        Assert.assertEquals(environmentConfigurations.getDbUser(), "iamuser");
-        Assert.assertEquals(environmentConfigurations.getDbPassword(), "iampassword");
+        Assert.assertEquals(environmentConfigurations.getDatabaseIp(), "iamdatabaseip");
+        Assert.assertEquals(environmentConfigurations.getDatabaseName(), "iamdatabasename");
+        Assert.assertEquals(environmentConfigurations.getDatabaseUser(), "iamdatabaseuser");
+        Assert.assertEquals(environmentConfigurations.getDatabasePassword(), "iamdatabasepassword");
     }
 }

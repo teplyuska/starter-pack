@@ -10,6 +10,7 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import starter.pack.core.repository.util.DataConnectionUtil;
 import starter.pack.shared.model.EnvironmentConfigurations;
 import starter.pack.shared.util.PropertyUtil;
 
@@ -32,10 +33,7 @@ public class DataConnectionConfig {
         vendorAdapter.setShowSql(false);
         em.setJpaVendorAdapter(vendorAdapter);
 
-        Properties hibernateProperties = new Properties();
-        // hibernateProperties.setProperty("hibernate.show_sql", "true");
-        // hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
+        Properties hibernateProperties = DataConnectionUtil.getHibernateProperties();
         em.setJpaProperties(hibernateProperties);
 
         return em;
@@ -43,22 +41,13 @@ public class DataConnectionConfig {
 
     @Bean
     public DataSource c3p0DataSource() throws Exception {
-        final com.mchange.v2.c3p0.ComboPooledDataSource dataSource = new com.mchange.v2.c3p0.ComboPooledDataSource();
-
         EnvironmentConfigurations environmentConfigurations = PropertyUtil.getEnvironmentConfigurationsByOS();
 
-        dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-        dataSource.setJdbcUrl(environmentConfigurations.getJdbcUrl());
-        dataSource.setUser(environmentConfigurations.getDbUser());
-        dataSource.setPassword(environmentConfigurations.getDbPassword());
-        dataSource.setMaxPoolSize(10);
-        dataSource.setMinPoolSize(1);
-        dataSource.setAcquireIncrement(1);
-        dataSource.setIdleConnectionTestPeriod(200);
-        dataSource.setMaxStatements(0);
-        dataSource.setMaxIdleTime(300);
-
-        return dataSource;
+        return DataConnectionUtil.getC3p0dataSource(
+                environmentConfigurations.getDatabaseIp(),
+                environmentConfigurations.getDatabaseName(),
+                environmentConfigurations.getDatabaseUser(),
+                environmentConfigurations.getDatabasePassword());
     }
 
     @Bean

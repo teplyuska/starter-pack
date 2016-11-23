@@ -1,11 +1,11 @@
-package starter.pack.restapi.model.dto.account;
+package starter.pack.core.model.service.account;
 
-public class CreateAccountDTO {
+public class CreateAccount {
     private String email;
     private String password;
     private String displayName;
 
-    public CreateAccountDTO() {
+    public CreateAccount() {
     }
 
     public String getEmail() {

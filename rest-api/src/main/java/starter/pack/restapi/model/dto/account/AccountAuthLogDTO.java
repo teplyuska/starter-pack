@@ -1,14 +1,16 @@
 package starter.pack.restapi.model.dto.account;
 
+import starter.pack.core.enums.AuthStatusEnum;
+
 import java.time.LocalDateTime;
 
-public class AccountDTO {
+public class AccountAuthLogDTO {
     private Long id;
-    private String email;
-    private String displayName;
+    private String ipAddress;
+    private AuthStatusEnum status;
     private LocalDateTime createdDate;
 
-    public AccountDTO() {
+    public AccountAuthLogDTO() {
     }
 
     public Long getId() {
@@ -19,20 +21,20 @@ public class AccountDTO {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public AuthStatusEnum getStatus() {
+        return status;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setStatus(AuthStatusEnum status) {
+        this.status = status;
     }
 
     public LocalDateTime getCreatedDate() {

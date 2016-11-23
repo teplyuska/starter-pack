@@ -1,11 +1,10 @@
-package starter.pack.restapi.model.dto.account;
+package starter.pack.restapi.model.dto.auth;
 
-public class CreateAccountDTO {
+public class AuthDTO {
     private String email;
     private String password;
-    private String displayName;
 
-    public CreateAccountDTO() {
+    public AuthDTO() {
     }
 
     public String getEmail() {
@@ -22,13 +21,5 @@ public class CreateAccountDTO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
     }
 }

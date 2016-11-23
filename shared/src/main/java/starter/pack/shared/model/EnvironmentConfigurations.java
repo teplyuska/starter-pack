@@ -1,34 +1,43 @@
 package starter.pack.shared.model;
 
 public class EnvironmentConfigurations {
-    private String jdbcUrl;
-    private String dbUser;
-    private String dbPassword;
+    private String databaseIp;
+    private String databaseName;
+    private String databaseUser;
+    private String databasePassword;
 
     public EnvironmentConfigurations() {
     }
 
-    public String getJdbcUrl() {
-        return jdbcUrl;
+    public String getDatabaseIp() {
+        return databaseIp;
     }
 
-    public void setJdbcUrl(String jdbcUrl) {
-        this.jdbcUrl = jdbcUrl;
+    public void setDatabaseIp(String databaseIp) {
+        this.databaseIp = databaseIp;
     }
 
-    public String getDbUser() {
-        return dbUser;
+    public String getDatabaseName() {
+        return databaseName;
     }
 
-    public void setDbUser(String dbUser) {
-        this.dbUser = dbUser;
+    public void setDatabaseName(String databaseName) {
+        this.databaseName = databaseName;
     }
 
-    public String getDbPassword() {
-        return dbPassword;
+    public String getDatabaseUser() {
+        return databaseUser;
     }
 
-    public void setDbPassword(String dbPassword) {
-        this.dbPassword = dbPassword;
+    public void setDatabaseUser(String databaseUser) {
+        this.databaseUser = databaseUser;
+    }
+
+    public String getDatabasePassword() {
+        return databasePassword;
+    }
+
+    public void setDatabasePassword(String databasePassword) {
+        this.databasePassword = databasePassword;
     }
 }
