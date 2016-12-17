@@ -32,7 +32,7 @@ public class AuthController {
         String ipAddress = IpAddressUtil.getClientIpAddress(httpServletRequest);
         AuthenticationResult authenticationResult = accountService.authenticateAccount(auth.getEmail(), auth.getPassword(), ipAddress);
 
-        if(authenticationResult.getAuthStatus().equals(AuthStatusEnum.SUCCESS)) {
+        if (authenticationResult.getAuthStatus().equals(AuthStatusEnum.SUCCESS)) {
             return new ResponseEntity<>(authenticationResult.getAccount().getEmail(), HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Try again", HttpStatus.UNAUTHORIZED);
